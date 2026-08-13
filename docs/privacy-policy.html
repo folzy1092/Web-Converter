@@ -1,0 +1,313 @@
+<title>Privacy Policy — Web Converter</title>
+<style>
+  :root {
+    --bg: #f6f7f5;
+    --surface: #ffffff;
+    --ink: #1c2321;
+    --ink-soft: #4b5450;
+    --border: #dfe3e0;
+    --accent: #b8860f;
+    --accent-ink: #6b4d05;
+    --accent-soft: #f6ecd2;
+    --ledger: #1f5f5b;
+    --ledger-soft: #e6f0ef;
+    --mono-bg: #eef1ef;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181a;
+      --surface: #1b2124;
+      --ink: #eceeec;
+      --ink-soft: #a9b3ae;
+      --border: #2e3538;
+      --accent: #e0b23b;
+      --accent-ink: #f4dc9b;
+      --accent-soft: #2c260f;
+      --ledger: #6fbdb6;
+      --ledger-soft: #16292a;
+      --mono-bg: #20272a;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14181a;
+    --surface: #1b2124;
+    --ink: #eceeec;
+    --ink-soft: #a9b3ae;
+    --border: #2e3538;
+    --accent: #e0b23b;
+    --accent-ink: #f4dc9b;
+    --accent-soft: #2c260f;
+    --ledger: #6fbdb6;
+    --ledger-soft: #16292a;
+    --mono-bg: #20272a;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 80px;
+  }
+
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  header.hero {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 48px 0 28px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+  }
+
+  .coin {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-ink));
+    color: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+  }
+
+  header.hero h1 {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: clamp(24px, 4vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+    text-wrap: balance;
+  }
+
+  header.hero p {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .lede {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+    max-width: 60ch;
+  }
+
+  .short-version {
+    background: var(--ledger-soft);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--ledger);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-bottom: 44px;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+  }
+
+  .short-version strong {
+    color: var(--ledger);
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-ink);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 14px;
+  }
+
+  h2 .num {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  h3 {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 20px 0 6px;
+  }
+
+  p { margin: 0 0 12px; max-width: 66ch; }
+
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; max-width: 62ch; }
+
+  code, .mono {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.86em;
+    background: var(--mono-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 13.5px;
+    margin: 14px 0 8px;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  th {
+    color: var(--ink-soft);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+  }
+
+  .surface {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+
+  .surface table { margin: 0; }
+  .surface th, .surface td { padding: 10px 14px; }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  a { color: var(--ledger); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="coin">$</div>
+    <div>
+      <h1>Privacy Policy</h1>
+      <p>Web Converter — browser extension</p>
+    </div>
+  </header>
+
+  <p class="lede">Web Converter is a currency &amp; crypto converter for Chromium browsers (Chrome, Brave, Edge). This page explains, in full, what data the extension touches and where it goes.</p>
+
+  <div class="short-version">
+    <strong>Short version</strong>
+    Web Converter collects nothing about you. No accounts, no analytics, no tracking, no personal data ever leaves your device. Everything below exists to make that claim checkable, not to hedge it.
+  </div>
+
+  <section>
+    <h2><span class="num">01</span> What's stored on your device</h2>
+    <p>The extension keeps a small settings object in your browser's local extension storage (<code>chrome.storage.local</code>), which never syncs to any account or server:</p>
+    <div class="surface">
+      <table>
+        <tr><th>Stored</th><th>Purpose</th></tr>
+        <tr><td>Your selected currencies</td><td>Which 3–7 currencies appear in the popup</td></tr>
+        <tr><td>Your base currency</td><td>Which one is centered when the popup opens</td></tr>
+        <tr><td>Cached exchange rates</td><td>Avoids re-fetching rates on every popup open</td></tr>
+        <tr><td>Cache timestamp</td><td>Knows when to refresh (every 6 hours)</td></tr>
+      </table>
+    </div>
+    <p>This data is local to your browser profile. Uninstalling the extension deletes it. It is not readable by websites, other extensions, or us.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span> What the extension reads on a page</h2>
+    <p>When you select text on a webpage, the extension checks — entirely inside your browser — whether that text looks like a price (e.g. <code>$1,099</code>). If it does, it shows a small tooltip converting that amount into your other selected currencies.</p>
+    <p>That check happens locally. The selected text is never transmitted anywhere, logged, or stored — it exists only for the instant it takes to compute the tooltip, then it's gone.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span> Requests to third parties</h2>
+    <p>To show real exchange rates and flag icons, the extension makes two kinds of outbound requests. Neither includes your identity, your selections, or anything you've typed — just a fixed URL.</p>
+    <div class="surface">
+      <table>
+        <tr><th>Service</th><th>What's requested</th><th>What's sent</th></tr>
+        <tr>
+          <td>cdn.jsdelivr.net</td>
+          <td>Exchange rate table &amp; currency name list, refreshed every 6&nbsp;hours</td>
+          <td>A fixed file URL — no parameters, no identifiers</td>
+        </tr>
+        <tr>
+          <td>flagcdn.com</td>
+          <td>A flag image, when a country flag needs to render</td>
+          <td>A two-letter country code (e.g. <code>us.svg</code>) — no parameters, no identifiers</td>
+        </tr>
+      </table>
+    </div>
+    <p>These are standard, publicly-cacheable static assets. Like any external image or resource load in any browser, the request necessarily reaches the third party's servers over the network — we don't control their server logs, but nothing personally identifying is ever included in what's sent.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span> Why each permission is requested</h2>
+    <div class="surface">
+      <table>
+        <tr><th>Permission</th><th>Reason</th></tr>
+        <tr><td><code>storage</code></td><td>Save your currency selection and cached rates locally</td></tr>
+        <tr><td><code>alarms</code></td><td>Refresh exchange rates every 6 hours in the background</td></tr>
+        <tr><td>Host access to jsdelivr &amp; flagcdn</td><td>Fetch rate data and flag images (see §3)</td></tr>
+        <tr><td>Access to all sites (content script)</td><td>Detect a selected price and show the conversion tooltip, on whichever page you're reading</td></tr>
+      </table>
+    </div>
+    <p>The extension does not request tabs, browsing history, bookmarks, cookies, or any permission beyond what's listed above.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span> Children's privacy</h2>
+    <p>Web Converter is a general-purpose utility, not directed at children, and — per everything above — collects no personal data from anyone, of any age.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span> Changes to this policy</h2>
+    <p>If this policy changes, the date below will update and the change will ship with a new extension version. There's no mailing list to notify because there's no data collected to notify anyone about.</p>
+  </section>
+
+  <footer>
+    Effective 2026-08-13 · Web Converter · Contact: <a href="mailto:denisvasilev817@gmail.com">denisvasilev817@gmail.com</a>
+  </footer>
+
+</div>

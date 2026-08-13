@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Web Converter",
+  "version": "1.0.0",
+  "description": "Конвертер валют и крипты: попап-паутинка на 3-7 валют и подсказка курса при выделении цены на странице.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{6714408f-167a-46b1-9242-f731ee96aeb3}",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["shared/rates.js", "shared/defaults.js", "background.js"]
+  },
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["https://cdn.jsdelivr.net/*", "https://flagcdn.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shared/convert.js", "shared/flags.js", "shared/crypto.js", "shared/defaults.js", "shared/format.js", "content/priceParser.js", "content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Web Converter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="banner" class="wc-banner" hidden></div>
+
+  <section id="pentagon-view">
+    <div id="pentagon" class="wc-pentagon"></div>
+    <button id="settings-btn" class="wc-gear" title="Настроить валюты">⚙</button>
+  </section>
+
+  <section id="settings-view" hidden>
+    <input id="settings-search" class="wc-search" type="text" placeholder="Поиск валюты...">
+    <div id="settings-error" class="wc-error" hidden></div>
+    <div id="settings-list" class="wc-list"></div>
+    <div class="wc-settings-actions">
+      <button id="settings-cancel">Отмена</button>
+      <button id="settings-save">Сохранить</button>
+    </div>
+  </section>
+
+  <script src="../shared/convert.js"></script>
+  <script src="../shared/flags.js"></script>
+  <script src="../shared/crypto.js"></script>
+  <script src="../shared/defaults.js"></script>
+  <script src="../shared/format.js"></script>
+  <script src="../shared/rates.js"></script>
+  <script src="layout.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

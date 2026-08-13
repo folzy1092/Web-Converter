@@ -1,0 +1,9 @@
+{
+  "name": "web-currency-extension",
+  "private": true,
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,52 @@
+.wc-tooltip {
+  position: absolute;
+  background: #1e1e1e;
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font: 12px/1.4 system-ui, sans-serif;
+  z-index: 2147483647;
+  min-width: 130px;
+}
+.wc-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.wc-tooltip-flag {
+  font-size: 13px;
+}
+.wc-tooltip-flag-img {
+  width: 18px;
+  height: 13px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+.wc-tooltip-coin-badge {
+  width: 18px;
+  height: 13px;
+  min-width: 18px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #f7c948, #d69e2e);
+  color: #4a2e00;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 13px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.wc-tooltip-code {
+  opacity: 0.75;
+  width: 32px;
+}
+.wc-tooltip-amount {
+  font-weight: 600;
+  margin-left: auto;
+}
