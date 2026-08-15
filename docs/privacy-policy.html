@@ -249,7 +249,7 @@
         <tr><td>Your selected currencies</td><td>Which 3–7 currencies appear in the popup</td></tr>
         <tr><td>Your base currency</td><td>Which one is centered when the popup opens</td></tr>
         <tr><td>Cached exchange rates</td><td>Avoids re-fetching rates on every popup open</td></tr>
-        <tr><td>Cache timestamp</td><td>Knows when to refresh (every 6 hours)</td></tr>
+        <tr><td>Cache timestamp</td><td>Knows when to refresh (every hour)</td></tr>
       </table>
     </div>
     <p>This data is local to your browser profile. Uninstalling the extension deletes it. It is not readable by websites, other extensions, or us.</p>
@@ -288,7 +288,7 @@
       <table>
         <tr><th>Permission</th><th>Reason</th></tr>
         <tr><td><code>storage</code></td><td>Save your currency selection and cached rates locally</td></tr>
-        <tr><td><code>alarms</code></td><td>Refresh exchange rates every 6 hours in the background</td></tr>
+        <tr><td><code>alarms</code></td><td>Refresh exchange rates every hour in the background</td></tr>
         <tr><td>Host access to jsdelivr &amp; flagcdn</td><td>Fetch rate data and flag images (see §3)</td></tr>
         <tr><td>Access to all sites (content script)</td><td>Detect a selected price and show the conversion tooltip, on whichever page you're reading</td></tr>
       </table>

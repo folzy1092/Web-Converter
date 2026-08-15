@@ -1,7 +1,7 @@
 // shared/rates.js
 const RATES_URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json';
 const NAMES_URL = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json';
-const CACHE_MAX_AGE_MS = 6 * 60 * 60 * 1000;
+const CACHE_MAX_AGE_MS = 60 * 60 * 1000;
 
 async function fetchAndCacheRates(storage, fetchFn) {
   const [ratesRes, namesRes] = await Promise.all([fetchFn(RATES_URL), fetchFn(NAMES_URL)]);
