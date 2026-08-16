@@ -30,9 +30,16 @@ test('formatAmount switches to compact notation for runaway magnitudes instead o
   assert.ok(out.length < 20, `expected a short compact string, got ${out.length} chars: ${out}`);
 });
 
-test('formatAmount stays in full digit-grouped form just under the compact threshold', () => {
-  const out = formatAmount(999999999999999);
+test('formatAmount shortens six-plus-digit amounts so they fit a small node circle', () => {
+  const out = formatAmount(178437000);
+  assert.ok(out.length <= 10, `expected a short compact string, got ${out.length} chars: ${out}`);
   assert.ok(!out.includes('e'));
+});
+
+test('formatAmount stays in full digit-grouped form just under the compact-shortening boundary', () => {
+  const out = formatAmount(99999);
+  assert.ok(!out.includes('e'));
+  assert.ok(!/тыс|млн|млрд|трлн/.test(out), `expected no compact suffix, got: ${out}`);
 });
 
 test('formatAmount returns an em dash for Infinity', () => {
