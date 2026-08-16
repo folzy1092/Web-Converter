@@ -47,6 +47,7 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: background-color 0.15s, color 0.15s;
+  overflow-x: hidden;
 }
 
 .wc-banner {
@@ -173,12 +174,20 @@ body {
   font-weight: 600;
   margin-top: 2px;
   font-size: 11px;
+  max-width: 68px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .wc-value {
   font-size: 11px;
   opacity: 0.8;
   margin-top: 2px;
+  max-width: 68px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .wc-input {

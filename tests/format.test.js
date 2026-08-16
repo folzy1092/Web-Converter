@@ -24,3 +24,18 @@ test('formatAmount produces a reasonable-looking string for typical fiat amounts
   assert.notEqual(out9200, '—');
   assert.notEqual(out12_5, '—');
 });
+
+test('formatAmount switches to compact notation for runaway magnitudes instead of a huge digit string', () => {
+  const out = formatAmount(1.1111214e23);
+  assert.ok(out.length < 20, `expected a short compact string, got ${out.length} chars: ${out}`);
+});
+
+test('formatAmount stays in full digit-grouped form just under the compact threshold', () => {
+  const out = formatAmount(999999999999999);
+  assert.ok(!out.includes('e'));
+});
+
+test('formatAmount returns an em dash for Infinity', () => {
+  assert.equal(formatAmount(Infinity), '—');
+  assert.equal(formatAmount(-Infinity), '—');
+});

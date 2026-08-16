@@ -50,6 +50,8 @@ function buildFlagEl(code) {
   return document.createElement('span');
 }
 
+const MAX_AMOUNT = 1e15;
+
 function parseAmountExpression(raw) {
   const terms = String(raw || '').split('+');
   let sum = 0;
@@ -63,7 +65,8 @@ function parseAmountExpression(raw) {
       any = true;
     }
   }
-  return any ? sum : 0;
+  if (!any) return 0;
+  return Math.min(sum, MAX_AMOUNT);
 }
 
 function showBanner(text) {
@@ -165,6 +168,7 @@ function renderPentagon() {
   centerInput.className = 'wc-input';
   centerInput.id = 'amount-input';
   centerInput.inputMode = 'decimal';
+  centerInput.maxLength = 24;
 
   center.appendChild(centerFlag);
   center.appendChild(centerCode);

@@ -11,6 +11,7 @@
   font: 12px/1.4 system-ui, sans-serif;
   z-index: 2147483647;
   min-width: 130px;
+  max-width: 240px;
 }
 .wc-tooltip-light {
   background: #ffffff;
@@ -53,8 +54,15 @@
 .wc-tooltip-code {
   opacity: 0.75;
   width: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .wc-tooltip-amount {
   font-weight: 600;
   margin-left: auto;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
