@@ -34,6 +34,22 @@ function buildFlagEl(code) {
   return document.createElement('span');
 }
 
+function parseAmountExpression(raw) {
+  const terms = String(raw || '').split('+');
+  let sum = 0;
+  let any = false;
+  for (const term of terms) {
+    const cleaned = term.trim().replace(',', '.').replace(/[^0-9.]/g, '');
+    if (!cleaned) continue;
+    const n = parseFloat(cleaned);
+    if (Number.isFinite(n)) {
+      sum += n;
+      any = true;
+    }
+  }
+  return any ? sum : 0;
+}
+
 function showBanner(text) {
   bannerEl.textContent = text;
   bannerEl.hidden = false;
@@ -68,8 +84,25 @@ function renderPentagon() {
 
   const ringCurrencies = state.selectedCurrencies.filter((c) => c !== state.baseCurrency);
   const positions = pickRingPositions(ringCurrencies.length, 380, 76);
+  const nodeSize = 76;
+  const centerPoint = 190;
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const linesSvg = document.createElementNS(svgNS, 'svg');
+  linesSvg.setAttribute('class', 'wc-pentagon-lines');
+  linesSvg.setAttribute('viewBox', '0 0 380 380');
+  pentagonEl.appendChild(linesSvg);
 
   ringCurrencies.forEach((code, i) => {
+    const pos = positions[i];
+    const line = document.createElementNS(svgNS, 'line');
+    line.setAttribute('class', 'wc-pentagon-line');
+    line.setAttribute('x1', centerPoint);
+    line.setAttribute('y1', centerPoint);
+    line.setAttribute('x2', pos.left + nodeSize / 2);
+    line.setAttribute('y2', pos.top + nodeSize / 2);
+    linesSvg.appendChild(line);
+
     const node = document.createElement('div');
     node.className = 'wc-node';
     node.dataset.code = code;
@@ -125,9 +158,7 @@ function renderPentagon() {
   const input = document.getElementById('amount-input');
   input.value = state.amount;
   input.addEventListener('input', () => {
-    const cleaned = input.value.replace(',', '.').replace(/[^0-9.]/g, '');
-    const n = parseFloat(cleaned);
-    state.amount = Number.isFinite(n) ? n : 0;
+    state.amount = parseAmountExpression(input.value);
     updateRingValues();
   });
 }

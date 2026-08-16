@@ -54,6 +54,21 @@ body {
   margin: 0 auto;
 }
 
+.wc-pentagon-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 380px;
+  pointer-events: none;
+}
+
+.wc-pentagon-line {
+  stroke: #b9c3d6;
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+
 .wc-node {
   position: absolute;
   width: 76px;
