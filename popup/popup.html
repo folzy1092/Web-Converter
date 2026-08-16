@@ -10,13 +10,25 @@
 
   <section id="pentagon-view">
     <div id="pentagon" class="wc-pentagon"></div>
-    <button id="settings-btn" class="wc-gear" title="Настроить валюты">⚙</button>
+    <div class="wc-toolbar">
+      <button id="theme-toggle" class="wc-icon-btn" title="Сменить тему попапа">🌙</button>
+      <button id="settings-btn" class="wc-icon-btn" title="Настроить валюты">⚙</button>
+    </div>
   </section>
 
   <section id="settings-view" hidden>
     <input id="settings-search" class="wc-search" type="text" placeholder="Поиск валюты...">
     <div id="settings-error" class="wc-error" hidden></div>
     <div id="settings-list" class="wc-list"></div>
+
+    <div class="wc-theme-row">
+      <span>Тема подсказки на странице</span>
+      <div class="wc-theme-switch">
+        <button id="tooltip-theme-light" class="wc-theme-btn" type="button">Светлая</button>
+        <button id="tooltip-theme-dark" class="wc-theme-btn" type="button">Тёмная</button>
+      </div>
+    </div>
+
     <div class="wc-settings-actions">
       <button id="settings-cancel">Отмена</button>
       <button id="settings-save">Сохранить</button>

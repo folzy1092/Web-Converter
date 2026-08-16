@@ -2,6 +2,7 @@
 const pentagonEl = document.getElementById('pentagon');
 const bannerEl = document.getElementById('banner');
 const settingsBtn = document.getElementById('settings-btn');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
 let state = {
   selectedCurrencies: DEFAULT_SELECTED,
@@ -9,7 +10,22 @@ let state = {
   ratesUSD: {},
   currencyNames: {},
   amount: 1000,
+  popupTheme: DEFAULT_POPUP_THEME,
+  tooltipTheme: DEFAULT_TOOLTIP_THEME,
 };
+
+function applyPopupTheme() {
+  document.documentElement.dataset.theme = state.popupTheme;
+  themeToggleBtn.textContent = state.popupTheme === 'dark' ? '☀️' : '🌙';
+  themeToggleBtn.title =
+    state.popupTheme === 'dark' ? 'Светлая тема попапа' : 'Тёмная тема попапа';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  state.popupTheme = state.popupTheme === 'dark' ? 'light' : 'dark';
+  chrome.storage.local.set({ popupTheme: state.popupTheme });
+  applyPopupTheme();
+});
 
 function buildFlagEl(code) {
   const country = flagCountryFor(code);
@@ -180,10 +196,16 @@ async function init() {
     'ratesUSD',
     'currencyNames',
     'ratesTimestamp',
+    'popupTheme',
+    'tooltipTheme',
   ]);
 
   state.selectedCurrencies = stored.selectedCurrencies || DEFAULT_SELECTED;
   state.baseCurrency = stored.baseCurrency || DEFAULT_BASE;
+  state.popupTheme = stored.popupTheme || DEFAULT_POPUP_THEME;
+  state.tooltipTheme = stored.tooltipTheme || DEFAULT_TOOLTIP_THEME;
+  applyPopupTheme();
+  updateTooltipThemeButtons();
 
   if (!stored.selectedCurrencies) {
     await chrome.storage.local.set({ selectedCurrencies: DEFAULT_SELECTED, baseCurrency: DEFAULT_BASE });
@@ -286,6 +308,23 @@ function renderSettingsList(filter) {
     cryptoEntries.forEach(({ code, name }) => appendSettingsRow(code, name));
   }
 }
+
+const tooltipThemeLightBtn = document.getElementById('tooltip-theme-light');
+const tooltipThemeDarkBtn = document.getElementById('tooltip-theme-dark');
+
+function updateTooltipThemeButtons() {
+  tooltipThemeLightBtn.classList.toggle('active', state.tooltipTheme === 'light');
+  tooltipThemeDarkBtn.classList.toggle('active', state.tooltipTheme === 'dark');
+}
+
+function setTooltipTheme(theme) {
+  state.tooltipTheme = theme;
+  chrome.storage.local.set({ tooltipTheme: theme });
+  updateTooltipThemeButtons();
+}
+
+tooltipThemeLightBtn.addEventListener('click', () => setTooltipTheme('light'));
+tooltipThemeDarkBtn.addEventListener('click', () => setTooltipTheme('dark'));
 
 function openSettings() {
   pendingSelection = new Set(state.selectedCurrencies);

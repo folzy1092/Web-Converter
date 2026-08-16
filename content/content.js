@@ -32,7 +32,7 @@
     return document.createElement('span');
   }
 
-  function showTooltip(rect, sourceCode, amount, ratesUSD, selectedCurrencies) {
+  function showTooltip(rect, sourceCode, amount, ratesUSD, selectedCurrencies, tooltipTheme) {
     removeTooltip();
 
     const source = String(sourceCode).toLowerCase();
@@ -42,7 +42,7 @@
     if (targets.length === 0) return;
 
     const el = document.createElement('div');
-    el.className = 'wc-tooltip';
+    el.className = tooltipTheme === 'light' ? 'wc-tooltip wc-tooltip-light' : 'wc-tooltip';
 
     for (const code of targets) {
       const converted = convertAmount(amount, source, code, ratesUSD);
@@ -90,9 +90,10 @@
       return;
     }
 
-    const { ratesUSD, selectedCurrencies } = await chrome.storage.local.get([
+    const { ratesUSD, selectedCurrencies, tooltipTheme } = await chrome.storage.local.get([
       'ratesUSD',
       'selectedCurrencies',
+      'tooltipTheme',
     ]);
     if (!ratesUSD) {
       removeTooltip();
@@ -104,7 +105,14 @@
 
     const range = currentSelection.getRangeAt(0);
     const rect = range.getBoundingClientRect();
-    showTooltip(rect, parsed.code, parsed.amount, ratesUSD, selectedCurrencies || DEFAULT_SELECTED);
+    showTooltip(
+      rect,
+      parsed.code,
+      parsed.amount,
+      ratesUSD,
+      selectedCurrencies || DEFAULT_SELECTED,
+      tooltipTheme || DEFAULT_TOOLTIP_THEME
+    );
   }
 
   document.addEventListener('selectionchange', () => {

@@ -12,6 +12,14 @@
   z-index: 2147483647;
   min-width: 130px;
 }
+.wc-tooltip-light {
+  background: #ffffff;
+  color: #1c1c1e;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+.wc-tooltip-light .wc-tooltip-flag-img {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
 .wc-tooltip-row {
   display: flex;
   align-items: center;
