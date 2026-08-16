@@ -218,11 +218,18 @@ body {
 .wc-icon-btn {
   border: none;
   background: none;
-  font-size: 16px;
-  line-height: 1;
-  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
   cursor: pointer;
   color: var(--text);
+}
+
+.wc-icon-btn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 .wc-icon-btn:hover {
@@ -232,6 +239,22 @@ body {
 .wc-icon-btn:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.wc-spinning svg {
+  animation: wc-spin 0.8s linear infinite;
+}
+
+@keyframes wc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-spinning svg {
+    animation: none;
+  }
 }
 
 .wc-search {
