@@ -203,9 +203,16 @@ body {
 .wc-toolbar {
   position: absolute;
   top: 0;
-  right: 0;
   display: flex;
   gap: 6px;
+}
+
+.wc-toolbar-left {
+  left: 0;
+}
+
+.wc-toolbar-right {
+  right: 0;
 }
 
 .wc-icon-btn {
@@ -220,6 +227,11 @@ body {
 
 .wc-icon-btn:hover {
   opacity: 0.7;
+}
+
+.wc-icon-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 .wc-search {

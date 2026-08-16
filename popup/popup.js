@@ -3,6 +3,8 @@ const pentagonEl = document.getElementById('pentagon');
 const bannerEl = document.getElementById('banner');
 const settingsBtn = document.getElementById('settings-btn');
 const themeToggleBtn = document.getElementById('theme-toggle');
+const openWindowBtn = document.getElementById('open-window-btn');
+const updateNowBtn = document.getElementById('update-now-btn');
 
 let state = {
   selectedCurrencies: DEFAULT_SELECTED,
@@ -25,6 +27,33 @@ themeToggleBtn.addEventListener('click', () => {
   state.popupTheme = state.popupTheme === 'dark' ? 'light' : 'dark';
   chrome.storage.local.set({ popupTheme: state.popupTheme });
   applyPopupTheme();
+});
+
+openWindowBtn.addEventListener('click', () => {
+  chrome.windows.create({
+    url: chrome.runtime.getURL('popup/popup.html'),
+    type: 'popup',
+    width: 420,
+    height: 480,
+  });
+});
+
+updateNowBtn.addEventListener('click', async () => {
+  updateNowBtn.disabled = true;
+  const originalText = updateNowBtn.textContent;
+  updateNowBtn.textContent = '…';
+  try {
+    const fresh = await fetchAndCacheRates(chrome.storage.local, fetch);
+    state.ratesUSD = fresh.ratesUSD;
+    state.currencyNames = fresh.currencyNames || {};
+    hideBanner();
+    renderPentagon();
+  } catch (err) {
+    showBanner('Не удалось обновить курс.');
+  } finally {
+    updateNowBtn.disabled = false;
+    updateNowBtn.textContent = originalText;
+  }
 });
 
 function buildFlagEl(code) {
